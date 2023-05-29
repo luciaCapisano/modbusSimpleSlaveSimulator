@@ -13,8 +13,8 @@ import net.wimpi.modbus.net.TCPMasterConnection;
 @Component
 public class ModbusConnection implements InitializingBean {
 
-//	private final String IP = "192.168.100.4";
-	private final String IP = "192.168.1.114";
+//	private final String IP = "127.0.0.1";
+	private final String IP = "190.106.131.23";
 
 	TCPMasterConnection connection = null;
 	ModbusTCPTransaction transaction = null; // the transaction
@@ -33,11 +33,12 @@ public class ModbusConnection implements InitializingBean {
 		}
 	}
 
-	private void connectTCP() throws Exception {
+	private void connectTCP() throws Exception  {
 
 		InetAddress ipAdress = InetAddress.getByName(IP);
 		connection = new TCPMasterConnection(ipAdress);
-		connection.setPort(502);
+//		connection.setPort(502);
+		connection.setPort(22222);
 		connection.connect();
 
 	}
@@ -54,7 +55,7 @@ public class ModbusConnection implements InitializingBean {
 		try {
 
 			transaction.execute();
-			this.disconnectTCP();
+//			this.disconnectTCP();
 
 		} catch (ModbusException e) {
 			e.printStackTrace();

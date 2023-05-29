@@ -21,7 +21,7 @@ public class ModbusRequests {
 	public ReadMultipleRegistersResponse requestAllRegisters() {
 
 		ModbusTCPTransaction transaction = connection.getTransaction();
-		ReadMultipleRegistersRequest request = new ReadMultipleRegistersRequest(4001, 8);
+		ReadMultipleRegistersRequest request = new ReadMultipleRegistersRequest(6000, 2);
 
 		connection.executeTransaction(transaction, request);
 
